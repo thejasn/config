@@ -1,0 +1,5 @@
+[user]
+	name = thejasn
+	email = thejasn.416@gmail.com
+[merge]
+	conflictstyle = diff3
