@@ -3,16 +3,23 @@ theme = "onedark"
 [editor]
 line-number = "relative"
 mouse = false
-auto-completion=true
-auto-save=true
-auto-format=true
-text-width=80
+auto-completion = true
+auto-save = true
+auto-format = true
+text-width = 80
+true-color = true
 gutters = ["diff", "diagnostics", "line-numbers", "spacer"]
 soft-wrap.enable = true
-soft-wrap.max-indent-retain=80
+soft-wrap.max-indent-retain = 80
+rulers = [80, 120]
 
 [editor.file-picker]
 hidden = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
 
 [editor.statusline]
 left = ["mode", "spinner", "file-modification-indicator", "read-only-indicator"]
@@ -33,4 +40,7 @@ render = true
 character = "┊"
 skip-levels = 1
 
-
+[keys.normal]
+# Use system clipboard
+# y = "yank_main_selection_to_clipboard"
+# p = "paste_clipboard_before"
