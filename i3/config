@@ -23,6 +23,8 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex-autostart --autostart --environment i3
 
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -35,6 +37,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 exec_always --no-startup-id picom -b
+
+exec xrandr --output DisplayPort-0 --off --output DisplayPort-1 --off --output DisplayPort-2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-0 --off
 # exec_always --no-startup-id ~/.config/polybar/polybar-launch.sh
 
 # Use pactl to adjust volume in PulseAudio.
@@ -63,7 +67,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id dmenu_run
 
 # dmenu
-# bindsym Control+space exec --no-startup-id j4-dmenu-desktop --dmenu "dmenu -i -nf '#F8F8F2' -nb '#282A36' -sb '#FFAA01' -sf '#F8F8F2' -fn 'monospace-10' -p '  '"
+bindsym Control+space exec --no-startup-id j4-dmenu-desktop --dmenu "dmenu -i -nf '#F8F8F2' -nb '#282A36' -sb '#FFAA01' -sf '#F8F8F2' -fn 'monospace-10' -p '  '" --term="alacritty"
 
 
 # A more modern dmenu replacement is rofi:
@@ -217,6 +221,10 @@ mode "$mode_system" {
 }
 
 bindsym $mod+BackSpace mode "$mode_system"
+
+## keyring configs
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
