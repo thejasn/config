@@ -21,6 +21,7 @@ lsp_manager.setup("gopls", {
   capabilities = require("lvim.lsp").common_capabilities(),
   settings = {
     gopls = {
+      buildFlags = {"-tags=tools"},
       usePlaceholders = true,
       gofumpt = true,
       codelenses = {

@@ -16,5 +16,13 @@ lvim.plugins = {
     },
     ft = { "go", 'gomod' },
     build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
-  }
+  },
+  {
+    "ggandor/leap.nvim",
+    name = "leap",
+    config = function()
+      require("leap").add_default_mappings()
+      require('leap').opts.safe_labels = {}
+    end,
+  },
 }
